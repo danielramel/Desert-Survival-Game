@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            flex-direction: column;
+            gap: 1px;
+            display: none;
+        }
+        #game {
+            height: 250px;
+            gap: 1px;
+            display: flex;
+            margin: auto;
+            width: 500px;
+            justify-content: center;
+        }
+        #player1, #player2, #player3, #player4 {
+            background-color: #FFEBB2;
+            width: 200px;
+            flex: 1;
+            border-radius: 10px;
+            border: 1px solid black;
+            height: 100px;
+        }
+        #infoPanel {
+            background-color: #FFEBB2;
+            text-align: center;
+            width: 100px;
+            flex: 1;
+            border-radius: 10px;  
+            border: 1px solid black; 
+        }
+
+        #infoPanel img {
+            width: 45px;
+            height: 45px;
+        }
+        p {
+            margin-left: 10px;
+            display: inline-flex;
+            gap: 10px;
+            margin-top: 0;
+        }
+        h5 {
+            margin-left: 10px;
+        }
+        img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            gap:3px;
+        
+        }   
+
+        table {
+            position: relative;
+            margin: auto;
+            width: 500px;
+            height: 500px;
+        }
+        td {
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            margin: none;
+        }
+        td img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin:auto" id="setup">
+        <label for="nrOfPlayers">Játékosok száma:</label>
+        <input id="nrOfPlayers" type="text" ><br>
+        <label for="p1n">Játékos neve:</label>
+        <input id="p1n" type="text" >
+        <label for="p1w">Alapvízkészlet:</label>
+        <input id="p1w" type="text" ><br>
+        <label for="p2n">Játékos neve:</label>
+        <input id="p2n" type="text" >
+        <label for="p2w">Alapvízkészlet:</label>
+        <input id="p2w" type="text" ><br>
+        <label for="p3n">Játékos neve:</label>
+        <input id="p3n" type="text" >
+        <label for="p3w">Alapvízkészlet:</label>
+        <input id="p3w" type="text" ><br>
+        <label for="p4n">Játékos neve:</label>
+        <input id="p4n" type="text" >
+        <label for="p4w">Alapvízkészlet:</label>
+        <input id="p4w" type="text" ><br>
+        <label for="mt">Játékidő (másodperc):</label>
+        <input id="mt" type="text" ><br>
+
+        <button onclick="createTable()">Játék indítása!</button>
+        <h3>Leírás:</h3>
+        <p>Ha valamit üresen hagysz, az akkor a default értéken értelmeződik.<br> Default vízkészlet: 6<br> Default játékidő: növekszik 0-tól. Ha megadsz egy játékidőt, akkor annyi időd lesz lejátszani a játékot.<br>
+        Defualt játékos szám: 1</p>
+    </div>
+    <div id="container" >
+        <div id="game">
+            <div class="column">
+                <div id="player1" >
+                    <h5 id="player1name">Player 1</h5>
+                    <p><img src='Assets/Water.png'><span id="water1"></span><br></p>
+                    <p><img src="Assets/Action Points.png" alt=""><span id="moves1"></span></p>
+                </div>
+                <div id="player2">
+                    <h5 id="player2name">Player 2</h5>
+                    <p><img src='Assets/Water.png'><span id="water2"></span><br></p>
+                    <p><img src="Assets/Action Points.png" alt=""><span id="moves2"></span></p>
+                </div>
+            </div>
+            <div class="column">
+                <div id="infoPanel">
+                    <h5 id="time" style="margin-right:auto">MM:SS</h5>
+                    <p><img hidden id="item1" src="Assets/Item 1.png" alt=""></p><br>
+                    <p><img hidden id="item2" src="Assets/Item 2.png" alt=""></p><br>
+                    <p><img hidden id="item3" src="Assets/Item 3.png" alt=""></p>
+                </div>
+            </div>
+            <div class="column">
+                <div id="player3">
+                    <h5 id="player3name">Player 3</h5>
+                    <p><img src='Assets/Water.png'><span id="water3"></span><br></p>
+                    <p><img src="Assets/Action Points.png" alt=""><span id="moves3"></span></p>
+                </div>
+                <div id="player4">
+                    <h5 id="player4name">Player 4</h5>
+                    <p><img src='Assets/Water.png'><span id="water4"></span><br></p>
+                    <p><img src="Assets/Action Points.png" alt=""><span id="moves4"></span></p>
+                </div>
+            </div>
+        </div>
+        <table id="gameTable"></table>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
